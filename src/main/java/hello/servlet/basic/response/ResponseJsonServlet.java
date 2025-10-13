@@ -20,7 +20,7 @@ public class ResponseJsonServlet extends HttpServlet {
 
         //Content-Type: application/json
         response.setContentType("application/json");
-        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
 
         HelloData helloData = new HelloData();
         helloData.setUsername("kim");
