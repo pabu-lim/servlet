@@ -34,9 +34,9 @@ public class FrontControllerServletV3 extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String requestURI = request.getRequestURI();
-
         ControllerV3 controller = controllerMap.get(requestURI);
         if (controller == null) {
+            System.out.println("no mapping controller");
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
@@ -54,7 +54,7 @@ public class FrontControllerServletV3 extends HttpServlet {
     }
 
     private static MyView viewResolver(String viewName) {
-        return new MyView("/WEB-INF/views/" + viewName);
+        return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 
     private static Map<String, String> createParamMap(HttpServletRequest request) {
